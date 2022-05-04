@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './css/weui.css';
+import './css/weuix.css';
+import './css/main.css';
+import './css/home.css';
+import './css/font.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Route} from 'react-router-dom';
+import {Title, titleRouterPath} from './constant/title';
+import {Qingjia} from './pages/Qingjia';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter >
+    <Route exact={true}
+           path='/'
+           component={App} />
+    <Route exact={true}
+           path={titleRouterPath[Title.myQingJia]}
+           component={Qingjia} />
+  </BrowserRouter >,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
