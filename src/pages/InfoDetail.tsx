@@ -1,8 +1,10 @@
 import {FunctionComponent} from 'react';
+import {timeFormat} from '../tools/timeFormat';
 
 
 export const InfoDetail: FunctionComponent = function () {
-  
+  const startTime: number = Date.now() - 1000 * 60 * 60 * 3;
+  const endTime: number = Date.now() + 1000 * 60 * 60 * 7;
   return (
     <div className='infodetails' >
       <div className='box' >
@@ -11,7 +13,7 @@ export const InfoDetail: FunctionComponent = function () {
           <span id='academy'
                 style={{fontSize: '16px'}} >
               {
-                //TODO:学院名称
+                "教育实验学院"
               }
             </span >
         </div >
@@ -24,7 +26,11 @@ export const InfoDetail: FunctionComponent = function () {
         </div >
         <div className='item' >
           <span className='title' >请假时长</span >
-          <span id='qjsxs' >5小时</span >
+          <span id='qjsxs' >
+            {
+              `${( endTime - startTime ) / 1000 / 60 / 60}小时`
+            }
+          </span >
         </div >
       </div >
       
@@ -32,18 +38,20 @@ export const InfoDetail: FunctionComponent = function () {
         <div className='item' >
           <span className='title' >请假开始时间</span >
           <span id='clock_start'
-                className='blue-text' />
+                className='blue-text' >
           {
-            //TODO:请假开始时间
+            timeFormat(startTime)
           }
+          </span >
         </div >
         <div className='item' >
           <span className='title' >请假结束时间</span >
           <span id='clock_end'
-                className='blue-text' />
+                className='blue-text' >
           {
-            //TODO:请假结束时间
+            timeFormat(endTime)
           }
+        </span >
         </div >
       </div >
     </div >
