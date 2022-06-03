@@ -1,7 +1,8 @@
-import {FunctionComponent} from 'react';
+import React, {FunctionComponent} from 'react';
 import {Slide} from '../Slide/Slide';
 
-export const Header: FunctionComponent = function () {
+
+export const Header: FunctionComponent<any> = function (props) {
   
   return (
     <>
@@ -9,10 +10,14 @@ export const Header: FunctionComponent = function () {
            style={{height: '52px'}} >
         <div className='top-head' >
           <div >
-            <a href='' >
-              <i className='iconfont icon-back'
-                 style={{color: '#FFF'}} />
-            </a >
+            <div >
+              <i
+                onClick={() => {
+                  props.history.go(-1)
+                }}
+                className='iconfont icon-back'
+                style={{color: '#FFF'}} />
+            </div >
           </div >
           <div >日常管理</div >
           <div style={{width: '15px'}} >
