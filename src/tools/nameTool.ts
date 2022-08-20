@@ -1,5 +1,5 @@
+import { faker } from "@faker-js/faker/locale/zh_CN"
+
 export const nameTool = function () {
-  
-  
-  return `王亚康`
+  return faker.name.lastName()+faker.name.firstName()
 }

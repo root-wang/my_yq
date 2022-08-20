@@ -1,32 +1,32 @@
-import {FunctionComponent} from 'react';
-import {InfoDetail} from './InfoDetail';
-import {Explain} from './Explain';
-import {nameTool} from '../tools/nameTool';
+import { FunctionComponent } from 'react';
+import { InfoDetail } from './InfoDetail';
+import { Explain } from './Explain';
+import { nameTool } from '../tools/nameTool';
 
 
-export const LeaveInfo: FunctionComponent = function () {
-  
+export const LeaveInfo: FunctionComponent<{ name: string }> = function (props) {
+
   return (
     <div className='leaveinfo pass' >
       <form >
         <div className='info gcp'
-             data-target='/'
-             data-form='form1'
-             style={{position: 'relative'}} >
+          data-target='/'
+          data-form='form1'
+          style={{ position: 'relative' }} >
           <div className='avatar'
-               style={{width: '45px', height: '45px', fontSize: '17px'}} >
+            style={{ width: '45px', height: '45px', fontSize: '17px' }} >
             {
-              nameTool().slice(1)
+              props.name.slice(-2)
             }
           </div >
           <div className='name' >
             <span id='name_1'
-                  style={{fontSize: '16px'}} >
+              style={{ fontSize: '16px' }} >
               {
-                nameTool()
+                props.name
               }
             </span >
-            <span style={{fontSize: '12px', color: '#cac0c0fa'}} >审批已通过</span >
+            <span style={{ fontSize: '12px', color: '#cac0c0fa' }} >审批已通过</span >
           </div >
           <div className='weui-cell__ft' />
         </div >

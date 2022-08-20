@@ -1,38 +1,25 @@
-import {FunctionComponent} from 'react';
-import {LeaveInfo} from './LeaveInfo';
+import { FunctionComponent } from 'react';
+import { TopHeader } from '../components/TopHeader/TopHeader';
+import { nameTool } from '../tools/nameTool';
+import { LeaveInfo } from './LeaveInfo';
 import './qing-jia.css'
-import {TimeList} from './TimeList';
-
-interface IProps {
-
-}
+import { TimeList } from './TimeList';
 
 export const Qingjia: FunctionComponent<any> = function (props) {
-  //TODO:编写头部通用组件
+
+  const requireName = nameTool()
+
   return (
     <div className='container leavedetails' >
       <div className='topbar'
-           style={{height: '52px'}} >
-        <div className='top-head' >
-          <div >
-            <a onClick={() => {
-              props.history.go(-1)
-            }} >
-              <i className='iconfont icon-back'
-                 style={{color: '#FFF'}} />
-            </a >
-          </div >
-          <div >请假信息</div >
-          <div >
-            <a href='' >
-              <i className='iconfont icon-fangzi'
-                 style={{color: '#FFF'}} />
-            </a >
-          </div >
-        </div >
+        style={{ height: '52px' }} >
+        <TopHeader
+          history={props.history}
+          title='请假信息'
+          showHome={false} />
       </div >
-      <LeaveInfo />
-      <TimeList />
+      <LeaveInfo name={requireName} />
+      <TimeList  name={requireName}/>
       <div className='footer-copy-space' />
     </div >
   )

@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import React, {FunctionComponent} from 'react';
 import {Title} from '../../constant/title';
 import {MyLink} from '../MyLink/MyLink';
@@ -19,7 +20,7 @@ export const List: FunctionComponent<IProps> = function () {
         {
           titleArr.map(title => {
             return (
-              <MyLink title={title} />
+              <MyLink key={nanoid()} title={title} />
             )
           })
         }

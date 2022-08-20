@@ -16,7 +16,10 @@ export const Slide: FunctionComponent = function () {
   };
   
   useEffect(() => {
-    timer = setInterval(changeImg, 3000)
+    timer = setInterval(changeImg, 3000);
+    return ()=>{
+      clearInterval(timer)
+    }
   }, [currentImg]);
   
   

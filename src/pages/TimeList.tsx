@@ -3,7 +3,7 @@ import {nameTool} from '../tools/nameTool';
 import {timeDifference, timeFormat} from '../tools/timeFormat';
 
 
-export const TimeList: FunctionComponent = function () {
+export const TimeList: FunctionComponent<{name:string}> = function (props) {
   const requestTime: number = Date.now() - 1000 * 60 * 60 * 46;
   const counselorTime: number = Date.now() - 1000 * 60 * 60 * 20;
   const secretaryTime: number = Date.now() - 1000 * 60 * 60 * 15;
@@ -15,7 +15,7 @@ export const TimeList: FunctionComponent = function () {
             <div className='avatar' >
               <span id='name_2' />
               {
-                nameTool().slice(1)
+                props.name.slice(-2)
               }
             </div >
             <div className='content' >
