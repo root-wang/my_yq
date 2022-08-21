@@ -38,9 +38,9 @@ export const Explain: FunctionComponent = function () {
 
 
       <div className='box' >
-        <a href=''
+        <span
           style={{ width: '95%', backgroundColor: '#46ad77', color: '#fff' }}
-          className='weui-btn bg-blue' >销假</a >
+          className='weui-btn bg-blue' >销假</span >
       </div >
 
 

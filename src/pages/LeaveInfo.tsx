@@ -4,11 +4,15 @@ import { Explain } from './Explain';
 import { nameTool } from '../tools/nameTool';
 
 
-export const LeaveInfo: FunctionComponent<{ name: string }> = function (props) {
+export const LeaveInfo: FunctionComponent<{ name: string, changeName: () => void }> = function (props) {
 
   return (
     <div className='leaveinfo pass' >
-      <form >
+      <form
+        onClick={() => {
+          props.changeName()
+        }}
+      >
         <div className='info gcp'
           data-target='/'
           data-form='form1'

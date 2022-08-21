@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import {History}  from 'history'
+import { History } from 'history'
 
 interface TopHeaderIprops {
     title: string
@@ -38,7 +38,10 @@ export const TopHeader: FunctionComponent<TopHeaderIprops> = function (props) {
                     ) : (
                         <div >
                             <a href='' >
-                                <i className='iconfont icon-fangzi'
+                                <i
+                                    onClick={() => {
+                                        props.history.push('/')
+                                    }} className='iconfont icon-fangzi'
                                     style={{ color: '#FFF' }} />
                             </a >
                         </div >

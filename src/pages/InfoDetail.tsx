@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 import { COLLEGE, collegeName } from '../constant/title';
 import { timeFormat } from '../tools/timeFormat';
 
@@ -6,16 +6,27 @@ import { timeFormat } from '../tools/timeFormat';
 export const InfoDetail: FunctionComponent = function () {
   const startTime: number = Date.now() - 1000 * 60 * 60 * 3;
   const endTime: number = Date.now() + 1000 * 60 * 60 * 7;
+
+  const generateCollegeName = function () {
+    return collegeName[Math.round(Math.random() * (collegeName.length - 1))] + COLLEGE
+  }
+
+  const [college, setCollegeName] = useState<string>(generateCollegeName())
+
   return (
     <div className='infodetails' >
       <div className='box' >
-        <div className='item' >
+        <div className='item'
+          onClick={() => {
+            setCollegeName(generateCollegeName())
+          }}
+        >
           <span className='title' >所在学院</span >
           <span
             id='academy'
             style={{ fontSize: '16px' }} >
             {
-              collegeName[Math.round(Math.random() * (collegeName.length - 1))] + COLLEGE
+              college
             }
           </span >
         </div >
